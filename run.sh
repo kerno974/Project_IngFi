@@ -7,4 +7,5 @@ then
 fi
 
 source .env/bin/activate
+pip3 install pandas
 python3 main.py
