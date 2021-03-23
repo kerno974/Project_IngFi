@@ -4,27 +4,45 @@ class Book:
         self.BuyOrders = []
         self.SellOrders = []
         
-    def State_Book_BuySide(self):
+        def State_Book_BuySide(self):
+        actions=[]
+        price=[]
         if self.BuyOrders == [] :
           print(" ")
         else:
             for i in range(len(self.BuyOrders)):
                 print("BUY ", self.BuyOrders[i].NbrAction,"@", self.BuyOrders[i].Price)
+                actions.append(self.BuyOrders[i].NbrAction)
+                price.append(self.BuyOrders[i].Price)
+        return actions, price
             
     def State_Book_SellSide(self):
+        actions=[]
+        price=[]
         if self.SellOrders == [] :
           print(" ")
         else:
             for i in range(len(self.SellOrders)):
                 print("SELL ", self.SellOrders[i].NbrAction,"@", self.SellOrders[i].Price)
+                actions.append(self.BuyOrders[i].NbrAction)
+                price.append(self.BuyOrders[i].Price)
+        return actions, price
                 
                 
     def log_display(self):
         print("Book on " , self.Book_name, ':\n')
-        self.State_Book_BuySide()
-        self.State_Book_SellSide()
+        sell_lines1,sell_lines2=self.State_Book_SellSide()
+        buy_lines1, buy_lines2=self.State_Book_BuySide()
         print("\n")
         print("---------------------------------------------")
+        
+        ar=numpy.array([buy_lines1, buy_lines2, sell_lines1, sell_lines2])
+        df=pandas.DataFrame(ar)
+        df1 = pandas.DataFrame({'B Actions': buy_lines1, 'B Prices': buy_lines2})
+        df2 = pandas.DataFrame({'S Actions': sell_lines1, 'S Prices': sell_lines2})
+        df3=pandas.concat([df1, df2], axis = 1)
+        print(df3)
+        print("\n")
         
     def HighestBid(self):
         print(self.BuyOrders[0].Price)
