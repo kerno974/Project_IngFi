@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ ! -f /main/.env ]]
+if [[ ! -d /main/.env ]]
 then
     python3 -m venv .env  
     source .env/bin/activate
