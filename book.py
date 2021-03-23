@@ -45,7 +45,7 @@ class Book:
                     self.BuyOrders.insert(i,order)
                     self.log_display()
                     break
-                #elif self.BuyOrders[i-1].Price == order.Price and self.BuyOrders[i].Price < order.Price :
+                
                 elif self.BuyOrders[i].Price == order.Price:
                     self.BuyOrders.insert(i+1,order)
                     self.log_display()
@@ -67,7 +67,7 @@ class Book:
                     self.SellOrders.insert(i, order)
                     self.log_display()
                     break
-                elif self.SellOrders[i].Price == order.Price and self.SellOrders[i+1].Price > order.Price :
+                elif self.SellOrders[i].Price == order.Price:
                     self.SellOrders.insert(i+1, order)
                     self.log_display()
             if self.SellOrders[-1].Price < order.Price:
