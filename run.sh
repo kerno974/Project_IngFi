@@ -8,4 +8,4 @@ then
 fi
 
 source .env/bin/activate
-python main.py
+python3 main.py
