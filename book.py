@@ -4,7 +4,7 @@ class Book:
         self.BuyOrders = []
         self.SellOrders = []
         
-        def State_Book_BuySide(self):
+    def State_Book_BuySide(self):
         actions=[]
         price=[]
         if self.BuyOrders == [] :
