@@ -1,3 +1,6 @@
+pip install pandas 
+import pandas 
+
 class Book:
     def __init__(self, Book_name):
         self.Book_name = Book_name
@@ -25,6 +28,7 @@ class Book:
         self.State_Book_SellSide()
         print("\n")
         print("---------------------------------------------")
+        df=pandas.DataFrame(ar,columns=['Sell', 'Buy']
         
     def HighestBid(self):
         print(self.BuyOrders[0].Price)
@@ -96,7 +100,7 @@ class Book:
                         del self.SellOrders[0]
                         
                                       
-            
+               
         
             
             
