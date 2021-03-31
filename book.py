@@ -43,6 +43,8 @@ class Book:
         df3=pandas.concat([df1, df2], axis = 1)
         print(df3)
         print("\n")
+
+
         
     def HighestBid(self):
         print(self.BuyOrders[0].Price)
@@ -63,7 +65,7 @@ class Book:
                     self.BuyOrders.insert(i,order)
                     self.log_display()
                     break
-                
+                #elif self.BuyOrders[i-1].Price == order.Price and self.BuyOrders[i].Price < order.Price :
                 elif self.BuyOrders[i].Price == order.Price:
                     self.BuyOrders.insert(i+1,order)
                     self.log_display()
@@ -85,7 +87,7 @@ class Book:
                     self.SellOrders.insert(i, order)
                     self.log_display()
                     break
-                elif self.SellOrders[i].Price == order.Price:
+                elif self.SellOrders[i].Price == order.Price and self.SellOrders[i+1].Price > order.Price :
                     self.SellOrders.insert(i+1, order)
                     self.log_display()
             if self.SellOrders[-1].Price < order.Price:
@@ -125,3 +127,17 @@ class Order:
         self.NbrAction = NbrAction
         self.Price = Price
         self.OrderType = OrderType
+        
+        
+        
+book = Book("TEST")
+book.insert_buy(10, 10.0)
+book.insert_sell(120, 12.0)
+book.insert_buy(5, 10.0)
+book.insert_buy(2, 11.0)
+book.insert_sell(1, 10.0)
+book.insert_sell(10, 10.0)
+
+
+book.log_display()
+
